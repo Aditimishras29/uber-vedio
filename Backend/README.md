@@ -26,3 +26,39 @@ The request body should be a JSON object with the following fields:
     - `email` (string): The email address of the user (Valid email address)
     - `password` (string): The hashed password of the user (Minimum length of 6 characters)
 - `token` (String): A JSON Web Token (JWT) that should be included in the headers of all subsequent requests to authenticate the user.
+
+## `/users/login` Endpoint
+
+### Description
+
+Authenticates a users using their email and password, returning a JWT token upon sucess
+
+### HTTP Method
+
+`POST`
+
+### Endpoint
+
+`/user/login`
+
+### Request Body
+
+The request body should be in JSON format and inlude the following fields:
+
+- `email` (string , required): Users,s email address (must be a valid emails).
+- `password` (string, reruired): User's password (minimum 6 characters).
+
+### Example Response
+
+- `user` (object):
+    - `fullname` (object):
+        - `firstname` (string): The first name of the user (Minimum length of 3 characters)
+        - `lastname` (string): The last name of the user (Minimum length of 3 characters)
+    - `email` (string): The email address of the user (Valid email address)
+    - `password` (string): The hashed password of the user (Minimum length of 6 characters)
+- `token` (String): A JSON Web Token (JWT) that should be included in the headers of all subsequent requests to authenticate the user.
+
+
+
+
+

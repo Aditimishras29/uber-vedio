@@ -16,7 +16,7 @@ router.post('/login',[
     body('email').isEmail().withMessage('Invalid Email'),
     body('password').isLength().withMessage('Password')
 ],
-    userController.LoginUser
+    userController.loginUser
 )
 
 
