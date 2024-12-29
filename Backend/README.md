@@ -91,7 +91,7 @@ Require a valid JWT token in the Authorization header:
 ### Description
 
 
-Logout the current users and blacklisted the token provided in cookies or headers
+Logout the current users and blacklisted the token provided in cookie or headers
 
 ### HTTP Method
 
@@ -99,8 +99,46 @@ Logout the current users and blacklisted the token provided in cookies or header
 
 ### Authentication
 
-Require a valid JWT token in the Authorization headeror cookie:
+Require a valid JWT token in the Authorization header:
 
+## Captain Endpoints
+
+### `/captain/register` Endpoint
+
+### Description
+Register a new captain with vehicle details.
+
+### HTTP Method
+`POST`
+
+### Request Body
+- `fullname` (object):
+  - `firstname` (string, required): Minimum 3 characters
+  - `lastname` (string, optional)
+- `email` (string, required): Valid email address
+- `password` (string, required): Minimum 6 characters
+- `vehicle` (object):
+  - `color` (string, required): Minimum 3 characters
+  - `plate` (string, required): Minimum 3 characters
+  - `capacity` (number, required): Vehicle passenger capacity
+  - `vehicleType` (string, required): Must be one of: 'car', 'motorcycle', 'auto'
+
+### Example Request
+
+ `captain` (object):
+    - `fullname` (object):
+        - `firstname` (string): The first name of the user (Minimum length of 3 characters)
+        - `lastname` (string): The last name of the user (Minimum length of 3 characters)
+    - `email` (string): The email address of the user (Valid email address)
+    - `password`(string):User's password (minimum 6 characters).
+    - `vehicle` (object)
+   -`color` (string) vehicle color
+   -`capacity`(number) vehicle capacity
+   -`vehicleType`(string)vehicle type
+   -`plate`(string)vehicle number plate
+   -`token` (string): JWT Token
+
+  
 
 
 
