@@ -140,6 +140,88 @@ Register a new captain with vehicle details.
 
   
 
+## `/captain/login` Endpoint
 
+### Description
+
+Authenticates a users using their email and password, returning a JWT token upon sucess
+
+### HTTP Method
+
+`POST`
+
+### Endpoint
+
+`/captain/login`
+
+### Request Body
+
+The request body should be in JSON format and inlude the following fields:
+
+- `email` (string , required): Users,s email address (must be a valid emails).
+- `password` (string, reruired): User's password (minimum 6 characters).
+
+### Example Response
+
+- `captain` (object):
+    - `fullname` (object):
+        - `firstname` (string): The first name of the user (Minimum length of 3 characters)
+        - `lastname` (string): The last name of the user (Minimum length of 3 characters)
+    - `email` (string): The email address of the user (Valid email address)
+    - `password` (string): The hashed password of the user (Minimum length of 6 characters)
+    - `vehicle` (object):
+        - `color` (string): The color of the vehicle (Minimum length of 3 characters)
+        - `plate` (string): The plate number of the vehicle (Minimum length of 3 characters)
+        - `capacity` (number): The passenger capacity of the vehicle
+        - `vehicleType` (string): The type of the vehicle (Must be one of: 'car', 'motorcycle', 'auto')
+    - `status` (string): The status of the captain (Must be one of: 'active', 'inactive')
+- `token` (String): A JSON Web Token (JWT) that should be included in the headers of all subsequent requests to authenticate the user.
+
+
+
+## `/captain/profile` Endpoint
+
+### Description
+
+
+Retrieves the authenticated captain's profile information.
+
+### HTTP Method
+
+`GET`
+
+### Authentication
+
+Require a valid JWT token in the Authorization header:
+`Authorization: Bearer <token>`
+
+### Example Response
+
+- `captain` (object):
+    - `fullname` (object):
+        - `firstname` (string): The first name of the user (Minimum length of 3 characters)
+        - `lastname` (string): The last name of the user (Minimum length of 3 characters)
+    - `email` (string): The email address of the user (Valid email address)
+    - `vehicle` (object):
+        - `color` (string): The color of the vehicle (Minimum length of 3 characters)
+        - `plate` (string): The plate number of the vehicle (Minimum length of 3 characters)
+        - `capacity` (number): The passenger capacity of the vehicle
+        - `vehicleType` (string): The type of the vehicle (Must be one of: 'car', 'motorcycle', 'auto')
+    - `status` (string): The status of the captain (Must be one of: 'active', 'inactive')
+  
+## `/captain/logout` Endpoint
+
+### Description
+
+
+Logout the current users and blacklisted the token provided in cookie or headers
+
+### HTTP Method
+
+`GET`
+
+### Authentication
+
+Require a valid JWT token in the Authorization header:
 
 
